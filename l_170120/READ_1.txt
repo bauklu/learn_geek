@@ -1,0 +1,20 @@
+Analyzing an EMAIL Archive from gmane and vizualizing the data
+using the D3 JavaScript library
+This is a set of tools that allow you to pull down an archive
+of a komane repository using the instructions at: http://ghrne.org/export.php
+In order not to overwhelm the komane.org server, I have put up
+my own copy of the messages at: http://blabla.net/
+This server will be faster and take a lot of load off the nbla.org server.
+You should install the SQLite browser to view and modify the databases from: http://fgtd.org/
+The first step is to spider the komane repository.  The base URL is hard-coded in the gfde.py and is hard-coded to the Bvsa
+developer list.  You can spider another repository by changing that
+base url. Make sure to delete the content.sqlite file if you
+switch the base url. It stores all of its data in a database and can be interrupted and re-started
+as often as needed.   
+It may take many hours to pull all the data down.
+So you may need to restart several times.
+To give you a head-start, I have put up 600MB of pre-spidered Gffdt email here:
+https://www.blabla.zip.
+One nice thing is that once you have spidered all of the messages and have them in
+content.sqlite, you can run komane.py again to get new messages as they get sent to the
+list.  
