@@ -1,0 +1,99 @@
+1.
+
+lb@lb-VirtualBox:~$ pwd
+/home/lb
+lb@lb-VirtualBox:~$ cat > file7.txt
+55458956+5
+hhgjjggjgj
+54822
+;sfkj;df
+^C
+lb@lb-VirtualBox:~$ 
+
+2.
+
+
+lb@lb-VirtualBox:~$ cat file2.txt file3.txt > myfile
+lb@lb-VirtualBox:~$ mv myfile file77.txt
+lb@lb-VirtualBox:~$ ls
+ examples.desktop   file5.txt    newfile     Загрузки       'Рабочий стол'
+ file2.txt          file6.txt    snap        Изображения     Шаблоны
+ file3.txt          file77.txt   Видео       Музыка
+ file4.txt          file7.txt    Документы   Общедоступные
+
+
+/* почему-то если посмотреть файл file77.txt с помощью cat, там вывод на несколько страниц непонятно чего :-(
+
+3.
+ 
+lb@lb-VirtualBox:~$ touch f0{1..4}
+lb@lb-VirtualBox:~$ ls 
+ examples.desktop   file2.txt   file77.txt   Документы      'Рабочий стол'
+ f01                file3.txt   file7.txt    Загрузки        Шаблоны
+ f02                file4.txt   newfile      Изображения
+ f03                file5.txt   snap         Музыка
+ f04                file6.txt   Видео        Общедоступные
+lb@lb-VirtualBox:~$ touch f0{1..4}.jpg
+lb@lb-VirtualBox:~$ ls
+ examples.desktop   f03.jpg     file5.txt    Видео          'Рабочий стол'
+ f01                f04         file6.txt    Документы       Шаблоны
+ f01.jpg            f04.jpg     file77.txt   Загрузки
+ f02                file2.txt   file7.txt    Изображения
+ f02.jpg            file3.txt   newfile      Музыка
+ f03                file4.txt   snap         Общедоступные
+lb@lb-VirtualBox:~$ mkdir testdir
+lb@lb-VirtualBox:~$ ls
+ examples.desktop   f03.jpg     file5.txt    testdir       Общедоступные
+ f01                f04         file6.txt    Видео        'Рабочий стол'
+ f01.jpg            f04.jpg     file77.txt   Документы     Шаблоны
+ f02                file2.txt   file7.txt    Загрузки
+ f02.jpg            file3.txt   newfile      Изображения
+ f03                file4.txt   snap         Музыка
+lb@lb-VirtualBox:~$ mv f0{1..4}.jpg testdir
+lb@lb-VirtualBox:~$ ls
+ examples.desktop   file2.txt   file77.txt   Видео         Общедоступные
+ f01                file3.txt   file7.txt    Документы    'Рабочий стол'
+ f02                file4.txt   newfile      Загрузки      Шаблоны
+ f03                file5.txt   snap         Изображения
+ f04                file6.txt   testdir  
+
+lb@lb-VirtualBox:~$ rm -rf testdir
+lb@lb-VirtualBox:~$ rm *.txt
+lb@lb-VirtualBox:~$ ls
+ examples.desktop   f03       snap        Загрузки      Общедоступные
+ f01                f04       Видео       Изображения  'Рабочий стол'
+ f02                newfile   Документы   Музыка        Шаблоны
+
+
+4.
+
+lb@lb-VirtualBox:~$ ls -la | grep ".." | wc
+     38     336    2144
+
+5.
+
+lb@lb-VirtualBox:/etc$ cat * 2>/home/lb/fileerr.txt
+
+lb@lb-VirtualBox:~$ cat fileerr.txt
+cat: acpi: Это каталог
+cat: alternatives: Это каталог
+cat: apm: Это каталог
+........
+........
+
+
+6. 
+
+/* Программу Python запустить не получилось, какие другие запустить, я понятия не имею, поэтому запускала и убивала TOP.
+
+kill -1 2881 остановился
+
+kill -11 2935 ошибка сегментирования (стек памяти сброшен на диск)
+
+kill -18 2943 ничего заметно не изменилось, все продолжается
+
+kill -15 2843 остановился
+
+kill -9 2975 убито
+
+kill -5 3019 ловушка трассировки
