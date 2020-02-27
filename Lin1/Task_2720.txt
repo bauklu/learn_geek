@@ -1,0 +1,89 @@
+1.Создать файл file1 и наполнить его произвольным содержимым. Скопировать его в file2. 
+Создать символическую ссылку file3 на file1. 
+Создать жесткую ссылку file4 на file1. 
+Посмотреть, какие айноды у файлов. Удалить file1. 
+Что стало с остальными созданными файлами? Попробовать вывести их на экран
+
+
+lb@lb-VirtualBox:~$ echo blablabla > file1
+lb@lb-VirtualBox:~$ cp file1 file2
+lb@lb-VirtualBox:~$ ln file1 file4
+lb@lb-VirtualBox:~$ ln -s file1 file3
+lb@lb-VirtualBox:~$ ls -ila
+
+/* У file1 и file4 айноды одинаковые
+
+lb@lb-VirtualBox:~$ rm file1
+
+/* жесткая ссылка осталаст, символическая стала красной
+
+
+lb@lb-VirtualBox:~$ cat file4
+blablabla
+lb@lb-VirtualBox:~$ cat file2
+blablabla
+lb@lb-VirtualBox:~$ cat file3
+cat: file3: Нет такого файла или каталога
+
+
+2.Дать созданным файлам другие, произвольные имена. Создать новую символическую ссылку. 
+Переместить ссылки в другую директорию
+
+lb@lb-VirtualBox:~$ mv file2 newfile1
+lb@lb-VirtualBox:~$ mv f01 newfile2
+lb@lb-VirtualBox:~$ mv f03 newfile3
+lb@lb-VirtualBox:~$ mv f04 newfile4
+
+lb@lb-VirtualBox:~$ ls -ila
+
+293835 lrwxrwxrwx  1 lb   lb        5 фев 26 08:09  file3 -> file1
+269601 -rw-r--r--  1 lb   lb       10 фев 26 08:02  file4
+
+293849 -rw-r--r--  1 lb   lb       10 фев 26 08:03  newfile1
+269441 -rw-r--r--  1 lb   lb   329908 фев 24 14:14  newfile2
+293927 -rw-r--r--  1 lb   lb        0 фев 24 14:03  newfile3
+293928 -rw-r--r--  1 lb   lb        0 фев 24 14:03  newfile4
+
+lb@lb-VirtualBox:~$ ln -s newfile1 link1
+
+lb@lb-VirtualBox:~$ mkdir newdir
+lb@lb-VirtualBox:~$ mv link1 newdir
+lb@lb-VirtualBox:~$ mv file3 newdir
+lb@lb-VirtualBox:~$ mv file4 newdir
+
+lb@lb-VirtualBox:~$ cd newdir
+lb@lb-VirtualBox:~/newdir$ ls -ila
+итого 12
+295442 drwxr-xr-x  2 lb lb 4096 фев 27 04:45 .
+295325 drwxr-xr-x 21 lb lb 4096 фев 27 04:45 ..
+293835 lrwxrwxrwx  1 lb lb    5 фев 26 08:09 file3 -> file1
+269601 -rw-r--r--  1 lb lb   10 фев 26 08:02 file4
+293825 lrwxrwxrwx  1 lb lb    8 фев 27 04:39 link1 -> newfile1
+
+
+3.Создать два произвольных файла. Первому присвоить права на чтение, запись для владельца и группы, только на чтение для всех. 
+Второму присвоить права на чтение, запись только для владельца. Сделать это в численном и символьном виде
+
+lb@lb-VirtualBox:~$ echo tiktaktiktak > f24
+lb@lb-VirtualBox:~$ echo bumbumbum > f25
+
+-rw-r--r-- 1 lb lb     13 фев 27 04:52  f24
+-rw-r--r-- 1 lb lb     10 фев 27 04:52  f25
+lb@lb-VirtualBox:~$ chmod g+w f24
+lb@lb-VirtualBox:~$ chmod go-r f25
+
+-rw-rw-r-- 1 lb lb     13 фев 27 04:52  f24
+-rw------- 1 lb lb     10 фев 27 04:52  f25
+
+lb@lb-VirtualBox:~$ chmod 664 f24
+lb@lb-VirtualBox:~$ chmod 600 f25
+
+4.Создать пользователя, обладающего возможностью выполнять действия от имени суперпользователя
+
+ Не успеваю на рабочей неделе, сделаю к следующему уроку.
+
+
+
+
+
+
