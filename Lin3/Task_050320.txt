@@ -1,0 +1,55 @@
+1.Написать скрипт, который удаляет из текстового файла пустые строки и 
+заменяет маленькие символы на большие. 
+
+
+lb@lb-VirtualBox:~$ cat file15
+
+tttttrtrtttttttttt
+
+8g8hgh8fghfhf898h
+
+aaaaaaaaaaaaaaaaaaa
+
+fgfhddddvsbsh
+
+kksdlgdsj
+
+
+mumumumumumumumumumumu
+
+bbbbbbbbb2lkdffhdlkjf
+
+ppsdclsddlgb
+
+phgkfkljlkgjlgjglkgj
+
+vnvmbmbdddndndndnnd
+
+__________________________________________________
+
+#!/bin/bash
+
+#удаляет из текстового файла пустые строки
+
+sed '/^[[:space:]]*$/d' file15 | tr [:lower:] [:upper:]
+
+#и заменяет маленькие символы на большие
+
+___________________________________________________
+
+lb@lb-VirtualBox:~$ vim script.sh
+lb@lb-VirtualBox:~$ ./script.sh
+
+TTTTTRTRTTTTTTTTTT
+8G8HGH8FGHFHF898H
+AAAAAAAAAAAAAAAAAAA
+FGFHDDDDVSBSH
+KKSDLGDSJ
+MUMUMUMUMUMUMUMUMUMUMU
+BBBBBBBBB2LKDFFHDLKJF
+PPSDCLSDDLGB
+PHGKFKLJLKGJLGJGLKGJ
+VNVMBMBDDDNDNDNDNND
+lb@lb-VirtualBox:~$ 
+
+
