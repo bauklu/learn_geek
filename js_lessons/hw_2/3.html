@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        let a = +(prompt('Введите целое число: '));
+        let b = +(prompt('Введите целое число: '));
+        if (a > 0 && b > 0) {
+            alert(a - b);      //если оба числа положительные, вывести их разность
+        }
+        if (a < 0 && b < 0) {
+            alert(a * b);     //если оба числа отрицательные, вывести их произведение
+        }
+        if (a > 0 && b < 0 || a < 0 && b > 0) {
+            alert(a + b);      //если числа разных знаков, вывести их сумму
+        }
+    </script>
+</body>
+
+</html>

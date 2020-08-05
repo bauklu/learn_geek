@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        function plus(x, y) {
+            return x + y;           //сложение
+        }
+        function minus(x, y) {
+            return x - y;           //вычитание
+        }
+        function multipl(x, y) {
+            return x * y;           //умножение
+        }
+        function divide(x, y) {
+            return x / y;           //деление
+        }
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case 'plus':
+                    alert(plus(arg1, arg2));
+                    break;
+                case 'minus':
+                    alert(minus(arg1, arg2));
+                    break;
+                case 'multipl':
+                    alert(multipl(arg1, arg2));
+                    break;
+                case 'divide':
+                    alert(divide(arg1, arg2));
+                    break;
+            }
+        }
+        mathOperation(4, 6, "plus");
+        mathOperation(18, 6, "minus");
+        mathOperation(3, 3, "multipl");
+        mathOperation(15, 5, "divide");
+
+    </script>
+</body>
+
+</html>

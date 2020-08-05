@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        let a = 1, b = 1, c, d;
+        c = ++a;
+        alert(c); // 2:  a=a+1 (a=2), c=a
+        d = b++;
+        alert(d); // 1: b=1, d=b, b=b+1 (b=2)
+        c = 2 + ++a;
+        alert(c); // a=2, a=a+1 (a=3), c=2+a
+        d = 2 + b++;
+        alert(d); // b=2, d=b, b=b+1 (b=3)
+        alert(a); // a=3 (строка 18)
+        alert(b); // b=3 строка 20
+    </script>
+</body>
+
+</html>
