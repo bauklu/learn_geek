@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        function Preobr(numb) {
+            if (!Number.isInteger(numb) || numb < 0 || numb > 999) {
+                console.log("Ошибка");
+                return {};
+            }
+            return {
+                units: numb % 10,
+                tens: Math.floor(numb / 10) % 10,
+                hundreds: Math.floor(numb / 100),
+            }
+        }
+        console.log(Preobr(854));
+        console.log(Preobr(3));
+        console.log(Preobr(2732));
+        console.log(Preobr("A"));
+    </script>
+</body>
+
+</html>

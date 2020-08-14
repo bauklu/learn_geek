@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(inp) {
+                this.text = inp;
+            }
+        }
+        const post1 = new Post('Pavel', 'Всем привет', '20.10.2019');
+        const post2 = new Post('Mika', 'Beautiful day', '06.09.2019');
+        console.log(post1);
+        post1.edit('Сегодня пятница');
+        console.log(post1);
+        console.log(post2);
+
+        class AttachedPost extends Post {
+            constructor(author, text, date, highlighted) {
+                super(author, text, date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        };
+
+        const attpost1 = new AttachedPost('Ann', 'Здравствуйте!', '18.09.2019');
+        console.log(attpost1);
+        attpost1.edit('Кто тут модератор?');
+        console.log(attpost1);
+        attpost1.makeTextHighlighted();
+        console.log(attpost1);
+    </script>
+</body>
+
+</html>
